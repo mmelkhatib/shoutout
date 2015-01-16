@@ -43,3 +43,25 @@ if(isset($_POST['submit'])){
            exit();
        }
 }
+
+
+/*
+ * 
+ * Add Delete functionality
+ *
+*/
+
+if(isset($_POST['delete'])) {
+       $user = mysqli_fetch_field($con, 'user');
+  $deleteQuery = "DELETE FROM shouts WHERE id = '".$_POST['delete']."' ";
+    mysqli_query($con, $deleteQuery);
+    
+        $delmessage= $user . "message has been removed";
+          header("location: index.php?delete=". urlencode($delmessage));
+           exit();
+}
+    
+    
+
+
+

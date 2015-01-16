@@ -65,3 +65,11 @@ span.time {
     background: rgb(199, 70, 70);
     margin-bottom: 21px;
 }
+
+input.delete {
+    float: right;
+    border: 1px solid #09b;
+    background: none;
+    color: #766F6F;
+    border-radius: 10px;
+}

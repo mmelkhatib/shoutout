@@ -30,7 +30,9 @@ $shouts = mysqli_query($con, $query);
             <div id="shouts">
                 <ul>
                     <?php while($row = mysqli_fetch_assoc($shouts)) : ?>
-                    <li class="message"><span class="time"><?php echo $row['time'] ?></span><strong><?php echo $row['user'] ?></strong> posted.<p><?php echo $row['message'] ?></p></li>
+                        
+                                      <li class="message"><span class="time"><?php echo $row['time'] ?></span><span class="user"><strong><?php echo $row['user'] ?></span></strong> posted.
+                                             <form method="post" action="process.php"> <input class="delete" name="delete" type="submit" value="<?php echo $row['id'] ?>"></form><p><?php echo $row['message'] ?></li>
                     <?php  endwhile; ?>
                             
                             
@@ -38,10 +40,13 @@ $shouts = mysqli_query($con, $query);
                   
             </div> 
                         
-            <div id="input">
+            
                 <?php if(isset($_GET['error'])): ?>
-                <div class="error"><?php echo $_GET['error']; ?></div>
-                    <?php endif; ?>
+                <div class="error"><?php echo $_GET['error']; ?></div> 
+                    <?php endif; ?>   
+                 <?php if(isset($_GET['delete'])): ?>
+                <div class="error"><?php echo $_GET['delete']; ?></div> 
+                    <?php endif; ?>                      
                 <form method="post" action="process.php">
                     <input type="text" name="user" placeholder="Enter your name" />
                     <input type="text" name="message" placeholder="Enter Your Message" />
@@ -49,7 +54,7 @@ $shouts = mysqli_query($con, $query);
                     
                 </form>
                 
-            </div>           
+                       
         </div>
         
         
