@@ -49,7 +49,7 @@ $shouts = mysqli_query($con, $query);
                     <?php endif; ?>                      
                 <form method="post" action="process.php">
                     <input type="text" name="user" placeholder="Enter your name" />
-                    <input type="text" name="message" placeholder="Enter Your Message" />
+                    <textarea col="40" rows="20" name="message" placeholder="Enter Your Message"></textarea>
                     <input class="button" type="submit" name="submit" value="Shout it out" />                    
                     
                 </form>
